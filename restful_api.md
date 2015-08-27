@@ -336,3 +336,10 @@ HTTP 状态码
  422 unprocessable entity - 校验错误时用。
  429 too many request - 请求过多。
 ```
+
+参考资料
+---
+
+* [理解RESTful架构-阮一峰](http://www.ruanyifeng.com/blog/2011/09/restful.html)
+* [RESTful API](http://www.jianshu.com/p/00631797a60d)
+* [GITHUB API 指南](https://developer.github.com/v3/)
