@@ -137,9 +137,7 @@
 
 术语说明：
 
-```
-块状结构(block-like construct)指的是一个类，方法或构造函数的主体。需要注意的是，数组初始化中的初始值可被选择性地视为块状结构(4.8.3.1节)。
-```
+    块状结构(block-like construct)指的是一个类，方法或构造函数的主体。需要注意的是，数组初始化中的初始值可被选择性地视为块状结构(4.8.3.1节)。
 
 1. 大括号
     1. 使用大括号(即使是可选的)
@@ -150,13 +148,13 @@
 
         对于非空块和块状结构，大括号遵循Kernighan和Ritchie风格 (Egyptian brackets):
 
-        * 左大括号前不换行
+        1. 左大括号前不换行
         2. 左大括号后换行
         3. 右大括号前换行
         4. 如果右大括号是一个语句、函数体或类的终止，则右大括号后换行; 否则不换行。例如，如果右大括号后面是else或逗号，则不换行。
 示例：
 
-        ```
+        ```java
         return new MyClass() {
           @Override public void method() {
             if (condition()) {
@@ -176,11 +174,11 @@
         
         一个空的块状结构里什么也不包含，大括号可以简洁地写成{}，不需要换行。例外：如果它是一个多块语句的一部分(if/else 或 try/catch/finally) ，即使大括号内没内容，右大括号也要换行。
 
-示例：
-
-```
-void doNothing() {}
-```
+        示例：
+        
+        ```java
+        void doNothing() {}
+        ```
 
 2. 块缩进：2个空格
 
@@ -264,7 +262,7 @@ void doNothing() {}
 
         以下示例先展示未对齐的代码，然后是对齐的代码：
         
-        ```
+        ```java
         private int x; // this is fine
         private Color color; // this too
         
@@ -276,7 +274,7 @@ void doNothing() {}
 
 7. 用小括号来限定组：推荐
 
-除非作者和reviewer都认为去掉小括号也不会使代码被误解，或是去掉小括号能让代码更易于阅读，否则我们不应该去掉小括号。 我们没有理由假设读者能记住整个Java运算符优先级表。
+    除非作者和reviewer都认为去掉小括号也不会使代码被误解，或是去掉小括号能让代码更易于阅读，否则我们不应该去掉小括号。 我们没有理由假设读者能记住整个Java运算符优先级表。
 
 8. 具体结构
 
@@ -285,7 +283,7 @@ void doNothing() {}
 
         没有方法和文档的枚举类可写成数组初始化的格式：
 
-        ```
+        ```java
         private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
         ```
         
@@ -303,45 +301,46 @@ void doNothing() {}
     3. 数组
     
         1. 数组初始化：可写成块状结构
-        数组初始化可以写成块状结构，比如，下面的写法都是OK的：
-        
-        
-        ```
-        new int[] {
-          0, 1, 2, 3 
-        }
-        
-        new int[] {
-          0,
-          1,
-          2,
-          3
-        }
-        
-        new int[] {
-          0, 1,
-          2, 3
-        }
-        
-        new int[]
-            {0, 1, 2, 3}
-        ```
-        
+            数组初始化可以写成块状结构，比如，下面的写法都是OK的：
+            
+            
+            ```java
+            new int[] {
+              0, 1, 2, 3 
+            }
+            
+            new int[] {
+              0,
+              1,
+              2,
+              3
+            }
+            
+            new int[] {
+              0, 1,
+              2, 3
+            }
+            
+            new int[]
+                {0, 1, 2, 3}
+            ```
+            
         2. 非C风格的数组声明
-        中括号是类型的一部分：String[] args， 而非String args[]。
+            中括号是类型的一部分：String[] args， 而非String args[]。
 
     4. switch语句
+    
         术语说明：switch块的大括号内是一个或多个语句组。每个语句组包含一个或多个switch标签(case FOO:或default:)，后面跟着一条或多条语句。
 
         1. 缩进
-        与其它块状结构一致，switch块中的内容缩进为2个空格。
+            与其它块状结构一致，switch块中的内容缩进为2个空格。
         
-        每个switch标签后新起一行，再缩进2个空格，写下一条或多条语句。
+            每个switch标签后新起一行，再缩进2个空格，写下一条或多条语句。
         
         2. Fall-through：注释
-        在一个switch块内，每个语句组要么通过break, continue, return或抛出异常来终止，要么通过一条注释来说明程序将继续执行到下一个语句组， 任何能表达这个意思的注释都是OK的(典型的是用// fall through)。这个特殊的注释并不需要在最后一个语句组(一般是default)中出现。示例：
+            在一个switch块内，每个语句组要么通过break, continue, return或抛出异常来终止，要么通过一条注释来说明程序将继续执行到下一个语句组， 任何能表达这个意思的注释都是OK的(典型的是用// fall through)。这个特殊的注释并不需要在最后一个语句组(一般是default)中出现。示例：
         
-        ```
+        ```java
         switch (input) {
           case 1:
           case 2:
@@ -362,7 +361,7 @@ void doNothing() {}
         
         注解紧跟在文档块后面，应用于类、方法和构造函数，一个注解独占一行。这些换行不属于自动换行(第4.5节，自动换行)，因此缩进级别不变。例如：
         
-        ```
+        ```java
         @Override
         @Nullable
         public String getNameIfPresent() { ... }
@@ -370,13 +369,13 @@ void doNothing() {}
         
         例外：单个的注解可以和签名的第一行出现在同一行。例如：
         
-        ```
+        ```java
         @Override public int hashCode() { ... }
         ```
         
         应用于字段的注解紧随文档块出现，应用于字段的多个注解允许与字段出现在同一行。例如：
         
-        ```
+        ```java
         @Partial @Mock DataLoader loader;
         ```
         
@@ -387,7 +386,7 @@ void doNothing() {}
         1. 块注释风格
         块注释与其周围的代码在同一缩进级别。它们可以是/* ... */风格，也可以是// ...风格。对于多行的/* ... */注释，后续行必须从*开始， 并且与前一行的*对齐。以下示例注释都是OK的。
         
-        ```
+        ```java
         /*
          * This is          // And so           /* Or you can
          * okay.            // is this.          * even do this. */
@@ -402,7 +401,7 @@ void doNothing() {}
     7. Modifiers
         类和成员的modifiers如果存在，则按Java语言规范中推荐的顺序出现。
     
-        ```
+        ```java
         public protected private abstract static final transient volatile synchronized native strictfp
         ```
 
@@ -437,7 +436,7 @@ void doNothing() {}
         
         每个常量都是一个静态final字段，但不是所有静态final字段都是常量。在决定一个字段是否是一个常量时， 考虑它是否真的感觉像是一个常量。例如，如果任何一个该实例的观测状态是可变的，则它几乎肯定不会是一个常量。 只是永远不打算改变对象一般是不够的，它要真的一直不变才能将它示为常量。
         
-        ```
+        ```java
         // Constants
         static final int NUMBER = 5;
         static final ImmutableList<String> NAMES = ImmutableList.of("Ed", "Ann");
@@ -480,6 +479,7 @@ void doNothing() {}
         以类命名方式(5.2.2节)，后面加个大写的T(如：RequestT, FooBarT)。
         
 3. 驼峰式命名法(CamelCase)
+
     驼峰式命名法分大驼峰式命名法(UpperCamelCase)和小驼峰式命名法(lowerCamelCase)。 有时，我们有不只一种合理的方式将一个英语词组转换成驼峰形式，如缩略语或不寻常的结构(例如"IPv6"或"iOS")。Google指定了以下的转换方案。
 
     名字从散文形式(prose form)开始:
@@ -518,7 +518,7 @@ void doNothing() {}
     
     如果它确实是不需要在catch块中做任何响应，需要做注释加以说明(如下面的例子)。
     
-    ```
+    ```java
     try {
       int i = Integer.parseInt(response);
       return handleNumericResponse(i);
@@ -530,7 +530,7 @@ void doNothing() {}
     
     例外：在测试中，如果一个捕获的异常被命名为expected，则它可以被不加注释地忽略。下面是一种非常常见的情形，用以确保所测试的方法会抛出一个期望中的异常， 因此在这里就没有必要加注释。
     
-    ```
+    ```java
     try {
       emptyStack.pop();
       fail();
@@ -541,7 +541,7 @@ void doNothing() {}
 3. 静态成员：使用类进行调用
     使用类名调用静态的类成员，而不是具体某个对象或表达式。
     
-    ```
+    ```java
     Foo aFoo = ...;
     Foo.aStaticMethod(); // good
     aFoo.aStaticMethod(); // bad
@@ -562,7 +562,7 @@ Javadoc
     1. 一般形式
         Javadoc块的基本格式如下所示：
         
-        ```
+        ```java
         /**
          * Multiple lines of Javadoc text are written here,
          * wrapped normally...
@@ -571,7 +571,7 @@ Javadoc
         ```
         或者是以下单行形式：
         
-        ```
+        ```java
         /** An especially short bit of Javadoc. */
         ```
         
